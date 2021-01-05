@@ -45,6 +45,24 @@ class Layer {
 	}
 }
 
+class Star {
+	constructor() {
+		this.x = Math.floor(Math.random() * canvasWidth);
+		this.y = Math.floor(Math.random() * canvasHeight);
+	}
+	draw(color) {
+		context.fillStyle = color;
+		context.fillRect(this.x, this.y, 1, 1);
+	}
+	move(speed) {
+		this.y += speed;
+		if (this.y + speed > canvasHeight) {
+			this.y = 0;
+			this.x = Math.floor(Math.random() * canvasWidth);
+		}
+	}
+}
+
 //  functions
 function init() {
 	canvas.width = window.innerWidth;
